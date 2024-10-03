@@ -1,14 +1,24 @@
 # Basic structure
 
-#Firstly use the easiest method to get the hermite polynomial
+#Firstly use the first know coefficients from theory
 import numpy as np
 
-# USE IF STATEMENT TO GENERATE RECURRENCE RELATION
 def hermite_polynomial(n,x):
-    if n ==0:
-        return np.ones_like(x) # creates an array of 1's
-    elif n ==1:
-        return 2*x
-    else:
-        return 2*x*hermite_polynomial(n-1,x) - 2 * (n-1)*hermite_polynomial(n-2,x)
+    H_0 = np.ones_like(x)
+    if n == 0:
+        return H_0
+    H_1 = 2 * x
+    if n == 1:
+        return H_1
     
+    
+    # Need iterative scheme for higher orders: Use if statement
+    Hn_minus_2 = H_0
+    Hn_minus_1 = H_1
+
+    for i in range(2, n+1):
+        H_n = 2 * x * Hn_minus_1 - 2 * (i - 1) * Hn_minus_2
+        Hn_minus_2, Hn_minus_1 = Hn_minus_1, H_n #Updates Hn-2 to Hn-1 and Hn-1 to Hn simultaneously
+
+    return H_n
+
