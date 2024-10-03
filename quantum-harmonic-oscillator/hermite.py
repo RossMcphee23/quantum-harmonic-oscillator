@@ -1,4 +1,6 @@
-# Basic structure
+'''
+This cell contains the code for the function that generates hermite polynomials of degree n
+'''
 
 #Firstly use the first know coefficients from theory
 import numpy as np
@@ -12,7 +14,7 @@ def hermite_polynomial(n,x):
         return H_1
     
     
-    # Need iterative scheme for higher orders: Use if statement
+    # Need iterative scheme for higher orders: Use for loop
     Hn_minus_2 = H_0
     Hn_minus_1 = H_1
 
