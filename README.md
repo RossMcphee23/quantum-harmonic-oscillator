@@ -61,7 +61,7 @@ documentation of the project.
 
 ## Contact
 For questions or suggestions, please contact [Ross 
-McPhee](mailto:your.email@example.com).
+McPhee](mailto:rm378@st-andrews.ac.uk).
 
 ## License
 This project is licensed under the MIT License. See the `LICENSE` file for 
