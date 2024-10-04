@@ -10,8 +10,7 @@ def wavefunction(n,x):
     psi_n = norm * hermite_polynomial(n,x) * np.exp(-x**2/2) #importing from hermite.py
     return psi_n
 
-# with the info we have, we can calculate expectation values.
-# exp value = integral(psistar * x * psi) which is easy since x only acts as x ->
+# with the info we have, we can calculate expectation values
 
 def expectation_value(n, x_vals):
     psi_n = wavefunction(n,x_vals)
@@ -43,3 +42,16 @@ def momentum_expectation_value(n, p_vals):
     expectation_p2 = np.trapz(p_vals**2 * probability_density_p, p_vals)
     uncertainty_p = np.sqrt(expectation_p2 - expectation_p**2)
     return expectation_p, uncertainty_p
+
+def calculate_energy(n):
+    # For the quantum harmonic oscillator, the energy levels are given by E_n = (n + 1/2) * ħω
+    # Assuming ħω = 1 for simplicity
+    energy_n = (n + 0.5)
+    return energy_n
+
+# Require time evolving wavefunction for simulation
+def wavefunction_t(n, x_vals, t, omega = 1.0):
+    psi_n = wavefunction(n,t)
+    E = calculate_energy(n)
+    time_factor = np.exp(-1j * E * omega * t)
+    return psi_n * time_factor
