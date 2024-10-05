@@ -1,7 +1,7 @@
 # Imports needed, note that wavefunction using hermite from 'hermite.py'
 
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 from wavefunction import wavefunction
 
 def plot_wavefunctions(max_n, x_vals):
