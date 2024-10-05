@@ -2,10 +2,11 @@
 
 from hermite import hermite_polynomial
 import numpy as np
+import math
 
 def wavefunction(n,x):
     #Need to recognize normalisation to keep area = 1
-    norm = 1/(2**n * np.factorial(n) * np.sqrt(np.pi)) 
+    norm = 1/(2**n * math.factorial(n) * np.sqrt(np.pi)) 
     #Now simply calculate wavefunction using definition
     psi_n = norm * hermite_polynomial(n,x) * np.exp(-x**2/2) #importing from hermite.py
     return psi_n
